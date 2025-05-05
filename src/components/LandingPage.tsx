@@ -128,37 +128,42 @@ const LandingPage = () => {
             <h2 className="text-2xl font-semibold text-gray-900">Explore Community Health Programs</h2>
             <p className="mt-2 text-gray-600">Discover, support, and track impactful maternal & child health initiatives in your community.</p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-3xl mx-auto mb-8">
-            {/* Example program card 1 */}
-            <div className="bg-white rounded-xl shadow-md border border-blue-100 flex flex-col">
-              <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=600&q=80" alt="Posyandu Revival" className="w-full h-40 object-cover rounded-t-xl" />
-              <div className="p-4 flex-1 flex flex-col justify-between">
-                <div>
-                  <h3 className="text-lg font-bold text-blue-800 mb-1">Posyandu Revival: Maternal & Child Health</h3>
-                  <div className="text-sm text-blue-700 font-medium mb-2">Yayasan Sehat Bersama</div>
-                  <div className="text-xs text-gray-500 mb-2">Target: Rp25.000.000 • 12 days left</div>
-                  <div className="w-full h-2 bg-blue-100 rounded-full overflow-hidden mb-2">
-                    <div className="h-2 bg-gradient-to-r from-blue-400 to-purple-500 rounded-full" style={{ width: '74%' }} />
+          <div className="relative mb-8 max-w-3xl mx-auto">
+            <div className="absolute -inset-4 bg-gradient-to-r from-blue-500/30 via-purple-500/30 to-pink-500/30 rounded-2xl blur-2xl z-0"></div>
+            <div className="relative bg-white rounded-2xl shadow-xl border border-blue-100 overflow-hidden">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 p-6">
+                {/* Example program card 1 */}
+                <div className="bg-white rounded-xl shadow border border-blue-50 flex flex-col">
+                  <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=600&q=80" alt="Posyandu Revival" className="w-full h-40 object-cover rounded-t-xl" />
+                  <div className="p-4 flex-1 flex flex-col justify-between">
+                    <div>
+                      <h3 className="text-lg font-bold text-blue-800 mb-1">Posyandu Revival: Maternal & Child Health</h3>
+                      <div className="text-sm text-blue-700 font-medium mb-2">Yayasan Sehat Bersama</div>
+                      <div className="text-xs text-gray-500 mb-2">Target: Rp25.000.000 • 12 days left</div>
+                      <div className="w-full h-2 bg-blue-100 rounded-full overflow-hidden mb-2">
+                        <div className="h-2 bg-gradient-to-r from-blue-400 to-purple-500 rounded-full" style={{ width: '74%' }} />
+                      </div>
+                      <div className="text-xs text-right text-blue-700 font-medium">74% funded</div>
+                    </div>
+                    <button className="mt-4 px-4 py-2 rounded-full bg-blue-600 text-white font-semibold shadow hover:bg-blue-700 transition-colors text-sm">View Program</button>
                   </div>
-                  <div className="text-xs text-right text-blue-700 font-medium">74% funded</div>
                 </div>
-                <button className="mt-4 px-4 py-2 rounded-full bg-blue-600 text-white font-semibold shadow hover:bg-blue-700 transition-colors text-sm">View Program</button>
-              </div>
-            </div>
-            {/* Example program card 2 */}
-            <div className="bg-white rounded-xl shadow-md border border-blue-100 flex flex-col">
-              <img src="https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=600&q=80" alt="Clean Water for Healthy Communities" className="w-full h-40 object-cover rounded-t-xl" />
-              <div className="p-4 flex-1 flex flex-col justify-between">
-                <div>
-                  <h3 className="text-lg font-bold text-blue-800 mb-1">Clean Water for Healthy Communities</h3>
-                  <div className="text-sm text-blue-700 font-medium mb-2">Water4Life Indonesia</div>
-                  <div className="text-xs text-gray-500 mb-2">Target: Rp20.000.000 • 20 days left</div>
-                  <div className="w-full h-2 bg-blue-100 rounded-full overflow-hidden mb-2">
-                    <div className="h-2 bg-gradient-to-r from-blue-400 to-purple-500 rounded-full" style={{ width: '60%' }} />
+                {/* Example program card 2 */}
+                <div className="bg-white rounded-xl shadow border border-blue-50 flex flex-col">
+                  <img src="https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=600&q=80" alt="Clean Water for Healthy Communities" className="w-full h-40 object-cover rounded-t-xl" />
+                  <div className="p-4 flex-1 flex flex-col justify-between">
+                    <div>
+                      <h3 className="text-lg font-bold text-blue-800 mb-1">Clean Water for Healthy Communities</h3>
+                      <div className="text-sm text-blue-700 font-medium mb-2">Water4Life Indonesia</div>
+                      <div className="text-xs text-gray-500 mb-2">Target: Rp20.000.000 • 20 days left</div>
+                      <div className="w-full h-2 bg-blue-100 rounded-full overflow-hidden mb-2">
+                        <div className="h-2 bg-gradient-to-r from-blue-400 to-purple-500 rounded-full" style={{ width: '60%' }} />
+                      </div>
+                      <div className="text-xs text-right text-blue-700 font-medium">60% funded</div>
+                    </div>
+                    <button className="mt-4 px-4 py-2 rounded-full bg-blue-600 text-white font-semibold shadow hover:bg-blue-700 transition-colors text-sm">View Program</button>
                   </div>
-                  <div className="text-xs text-right text-blue-700 font-medium">60% funded</div>
                 </div>
-                <button className="mt-4 px-4 py-2 rounded-full bg-blue-600 text-white font-semibold shadow hover:bg-blue-700 transition-colors text-sm">View Program</button>
               </div>
             </div>
           </div>
