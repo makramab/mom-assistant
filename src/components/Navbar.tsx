@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useEffect, useState} from 'react';
 
 const navLinks = [
   { label: 'Select Role', href: '#who', section: 'who' },
@@ -69,7 +69,7 @@ const Navbar = () => {
     };
   }, [lockedSection]);
 
-  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string, section: string) => {
+  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, section: string) => {
     e.preventDefault();
     setLockedSection(section);
     setActiveSection(section);
@@ -105,7 +105,7 @@ const Navbar = () => {
           <a
             key={link.href}
             href={link.href}
-            onClick={e => handleNavClick(e, link.href, link.section)}
+            onClick={e => handleNavClick(e, link.section)}
             className={`text-base font-semibold px-2 py-1 rounded transition-colors duration-150 focus:outline-none focus:ring-2 focus:ring-blue-400
               ${activeSection === link.section ? 'text-blue-400 shadow-[0_0_8px_2px_#3b82f6cc] bg-blue-900/40' : 'text-blue-100 hover:text-blue-400'}`}
             style={activeSection === link.section ? { textShadow: '0 0 8px #3b82f6cc, 0 0 2px #3b82f6cc' } : {}}
