@@ -3,12 +3,10 @@ import LandingPage from './components/LandingPage';
 import ChatInterface from './components/ChatInterface';
 import Marketplace from './pages/Marketplace';
 import CampaignDetail from './pages/CampaignDetail';
-import Navbar from './components/Navbar';
 
 function App() {
   return (
     <Router>
-      <Navbar />
       <Routes>
         <Route path="/" element={<LandingPage />} />
         <Route path="/chat" element={<ChatInterface />} />

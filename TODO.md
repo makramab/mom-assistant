@@ -1,158 +1,57 @@
-# Baby Development Assessment Chatbot - Progress Tracker
+# Implementation Plan for BundaCare Platform
 
-This file tracks our progress through the implementation steps of the Baby Development Assessment Chatbot and related deliverables.
+This file tracks the implementation steps for the BundaCare platform, based on the latest plan in UPDATED_NEWEST_PLAN.md.
 
-## Implementation Steps
+## 1. Landing Page & User Selection
+- [x] Design landing page with three user-type options (Community Health Workers, Mothers, Others)
+    - User-type selection UI implemented with carousel (mobile) and grid (desktop)
+    - Continue button routes to personalized dashboard (route only, dashboard content pending)
+    - Video card with YouTube embed and custom styling (responsive 16:9 card, blends with page, faded white outline, thumbnail shifts up for better composition)
+- [x] Implement user-type selection logic (no login required)
+    - State managed in LandingPage, selection persists until navigation
 
-- [x] 1. **Scaffold the App**
-  - ✓ Initialize React project with Vite
-  - ✓ Using TypeScript + SWC template
+## 2. Community Health Workers (Kaders)
+### Widget Features
+- [ ] E-learning modules (nutrition, immunization, early detection, etc.)
+- [ ] Automatic certification system
+- [ ] Structured curriculum by role (Maternal & Child Health, Nutrition, Development, etc.)
+- [ ] Teaching tools & educational media (videos, posters, templates)
+- [ ] Digital visit reporting & monitoring (home visits, nutrition, high-risk pregnancies)
+- [ ] Data sync with government/MEL dashboards
+- [ ] Modular, asynchronous learning (progress bar, continue where left off)
+- [ ] Incentives & productivity tracking (work-hour logs, rewards, wallet integration)
 
-- [x] 2. **Install Styling Tools**
-  - ✓ Install Tailwind CSS
-  - ✓ Configure PostCSS
-  - ✓ Set up autoprefixer
+## 3. Mothers
+### Pregnancy Phase (Prenatal)
+- [ ] Content modules for prenatal care (complications, nutrition, breastfeeding, birth prep)
+### 0–6 Months: Exclusive Breastfeeding
+- [ ] Content modules for breastfeeding support (techniques, challenges, myths, pumping)
+### 6–24 Months: Complementary Feeding
+- [ ] Content modules for feeding practices (readiness, 4-star feeding, texture, recipes)
+### 2–5 Years: Development & Stimulation
+- [ ] Content modules for sensory, motor, language, social-emotional, independence
+- [ ] Practical tools (videos, infographics, checklists, nutrition calculator, menu templates)
+- [ ] Digital support features (reminders, forum, expert chat, growth charts)
 
-- [x] 3. **Set Up Global Styles**
-  - ✓ Import Tailwind's base, components, and utilities
-  - ✓ Configure index.tsx imports
+## 4. Others (Government & Private Sector)
+- [ ] Define and implement role-specific features & integrations
 
-- [x] 4. **Create Landing Page Layout**
-  - [x] Update hero section for development assessment focus
-  - [x] Add feature sections for core functionalities
-  - [x] Implement footer with resources
-
-- [x] 5. **Build Chat Interface**
-  - [x] Create chat container component
-  - [x] Implement message history display
-  - [x] Add message input and controls
-  - [x] Set up chat context management
-
-- [ ] 6. **Implement Assessment Modals**
-  - [ ] Create base modal component
-  - [ ] Build milestone questionnaire forms
-  - [ ] Add progress visualization
-  - [ ] Implement result sharing with chat
-
-- [ ] 7. **Add Chat Logic**
-  - [ ] Set up message handling
-  - [ ] Implement context awareness
-  - [ ] Add assessment launching triggers
-  - [ ] Create response generation system
-
-- [ ] 8. **Create Assessment Logic**
-  - [ ] Define milestone data structure
-  - [ ] Build evaluation algorithms
-  - [ ] Implement result calculation
-  - [ ] Add chat result integration
-
-- [ ] 9. **Implement Nutrition Module**
-  - [ ] Add nutrition chat capabilities
-  - [ ] Create meal planning modal
-  - [ ] Implement recipe suggestions
-  - [ ] Add feeding guidelines
-
-- [ ] 10. **Style Components**
-  - [ ] Design chat interface
-  - [ ] Style modal components
-  - [ ] Create consistent UI elements
-  - [ ] Add responsive layouts
-
-- [ ] 11. **Enhance User Experience**
-  - [ ] Add loading states
-  - [ ] Implement smooth transitions
-  - [ ] Create progress indicators
-  - [ ] Add error handling
-
-- [x] **Add Global Navigation Bar**
-  - [x] Implemented a Navbar component with links to Home, Chat, and Marketplace
-  - [x] Navbar is visible and consistent across Landing, Chat, Marketplace, and Campaign Detail pages
-  - [x] Navigation is seamless and user-friendly
+## 5. Shared & Platform Features
+- [x] Implement global navigation bar (Landing page only)
+    - Section highlighting based on scroll position
+    - Only visible on landing page
+    - About Us button links to /about (blank for now)
+    - Log In and Sign Up buttons removed
+- [x] Style all components for consistency and accessibility
+    - Modern, accessible, and responsive design
+- [ ] Map plan sections to UI components (menus, modules, widgets)
+- [ ] Define data models for progress tracking & reporting
+- [ ] Design API endpoints for content delivery & syncing
+- [ ] Wireframe user-flow: landing page → role selection → personalized dashboard
+- [ ] Add responsive layouts and mobile support
+- [ ] Implement error handling, loading states, and smooth transitions
 
 ---
 
-- [x] 12. **Build Financing & MEL Matchmaking Platform - Marketplace Card UI**
-  - [x] Show sample picture of the program
-  - [x] Show title of the program
-  - [x] Show organization name
-  - [x] Show amount collected (IDR Rupiah)
-  - [x] Show days left for donation/campaign
-  - [x] Display target amount
-  - [x] Add progress bar (amount/target)
-  - [x] Add Donate button
-  - [x] Add Share and Details buttons
-  - [x] Display cards in a responsive grid
-
-- [x] 13. **Implement Campaign Detail Page and Routing**
-  - [x] Create dedicated detail page for each campaign
-  - [x] Add routing from marketplace card Details button
-  - [x] Display full campaign information on detail page
-  - [x] Animated expand/collapse for campaign story section ("Baca selengkapnya")
-
-- [ ] 14. **Build Interactive Parental Nutrition-Support App**
-  - [ ] User profiling (pregnancy stage, dietary restrictions, local food availability)
-  - [ ] Adaptive lesson modules (text, video, quizzes, sensitive/specific interventions)
-  - [ ] Chatbot Q&A (context-aware prompts, follow-up suggestions)
-  - [ ] Progress tracking dashboard (reminders, motivational nudges, visualization)
-
-## Next Step
-→ Implement the campaign detail page and routing for the marketplace
-
----
-
-# Interactive Parental Nutrition-Support App - Progress Tracker
-
-- [ ] **User Profiling**
-  - [ ] Collect pregnancy stage
-  - [ ] Gather dietary restrictions
-  - [ ] Assess local food availability
-
-- [ ] **Adaptive Lesson Modules**
-  - [ ] Text-based lessons
-  - [ ] Video lessons
-  - [ ] Quizzes for engagement
-  - [ ] Sensitive interventions (e.g. breastfeeding encouragement)
-  - [ ] Specific interventions (e.g. micronutrient dosing)
-
-- [ ] **Chatbot Q&A**
-  - [ ] Context-aware prompts
-  - [ ] Follow-up suggestions
-
-- [ ] **Progress Tracking Dashboard**
-  - [ ] Reminders
-  - [ ] Motivational nudges
-  - [ ] Progress visualization
-
----
-
-# Financing & MEL Matchmaking Platform - Progress Tracker
-
-- [x] **Funding Marketplace**
-  - [x] Upload program profiles
-  - [x] Upload funding opportunities
-  - [x] Automated matching (region, budget size, program type)
-  - [x] Marketplace card UI:
-    - [x] Show sample picture of the program
-    - [x] Show title of the program
-    - [x] Show organization name
-    - [x] Show amount collected (IDR Rupiah)
-    - [x] Show days left for donation/campaign
-    - [x] Display target amount
-    - [x] Add progress bar (amount/target)
-    - [x] Add Donate button
-    - [x] Add Share and Details buttons
-    - [x] Display cards in a responsive grid
-
-- [ ] **MEL Module**
-  - [ ] Real-time data collection (surveys, activity logs)
-  - [ ] KPI dashboards
-  - [ ] Automated impact reports
-
-- [ ] **Feedback Loops**
-  - [ ] Trigger alerts for under-performing metrics
-  - [ ] Suggest course-corrections (top-up funding, training refreshers)
-
-- [ ] **Secure Role-Based Access**
-  - [ ] Funder access
-  - [ ] Program manager access
-  - [ ] Data analyst access 
+# Progress Tracking
+Note: Track progress for each user type and feature (see above for completed items). Regularly update this file as features are completed. 
