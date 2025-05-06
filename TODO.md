@@ -11,7 +11,12 @@ This file tracks the implementation steps for the BundaCare platform, based on t
     - State managed in LandingPage, selection persists until navigation
 
 ## 2. Community Health Workers (Kaders)
-### Widget Features
+- [x] Initial Kaders dashboard page (UI shell)
+    - Themed to match landing page (blue gradients, glassmorphism)
+    - Sections for: welcome, progress/stats, e-learning modules, tools/resources, community/support, data sync (all placeholder content)
+    - Route: /dashboard/kader
+    - Uses a reusable simple navigation bar for back navigation
+### Widget Features (to be implemented)
 - [ ] E-learning modules (nutrition, immunization, early detection, etc.)
 - [ ] Automatic certification system
 - [ ] Structured curriculum by role (Maternal & Child Health, Nutrition, Development, etc.)
@@ -22,28 +27,44 @@ This file tracks the implementation steps for the BundaCare platform, based on t
 - [ ] Incentives & productivity tracking (work-hour logs, rewards, wallet integration)
 
 ## 3. Mothers
-### Pregnancy Phase (Prenatal)
+- [x] Initial Mother dashboard page (UI shell)
+    - Themed to match landing page (blue gradients, glassmorphism)
+    - Sections for: welcome, progress/stats, content modules by stage, practical tools/resources, community/support, digital support (all placeholder content)
+    - Route: /dashboard/mother
+    - Uses a reusable simple navigation bar for back navigation
+### Widget Features (to be implemented)
 - [ ] Content modules for prenatal care (complications, nutrition, breastfeeding, birth prep)
-### 0–6 Months: Exclusive Breastfeeding
 - [ ] Content modules for breastfeeding support (techniques, challenges, myths, pumping)
-### 6–24 Months: Complementary Feeding
 - [ ] Content modules for feeding practices (readiness, 4-star feeding, texture, recipes)
-### 2–5 Years: Development & Stimulation
 - [ ] Content modules for sensory, motor, language, social-emotional, independence
 - [ ] Practical tools (videos, infographics, checklists, nutrition calculator, menu templates)
 - [ ] Digital support features (reminders, forum, expert chat, growth charts)
 
 ## 4. Others (Government & Private Sector)
+- [x] Initial Other dashboard page (UI shell)
+    - Themed to match landing page (blue gradients, glassmorphism)
+    - Sections for: welcome, integration features, analytics, role-specific tools (all placeholder content)
+    - Route: /dashboard/other
+    - Uses a reusable simple navigation bar for back navigation
+### Widget Features (to be implemented)
 - [ ] Define and implement role-specific features & integrations
 
-## 5. Shared & Platform Features
+## 5. About Page
+- [x] About page summarizing SahabatSehat platform
+    - Includes vision, user types, and core features
+    - Uses content from PROJECT_OVERVIEW.md
+    - Route: /about
+    - Themed to match landing page (blue gradients, glassmorphism)
+
+## 6. Shared & Platform Features
 - [x] Implement global navigation bar (Landing page only)
     - Section highlighting based on scroll position
     - Only visible on landing page
-    - About Us button links to /about (blank for now)
+    - About Us button links to /about
     - Log In and Sign Up buttons removed
 - [x] Style all components for consistency and accessibility
     - Modern, accessible, and responsive design
+- [x] Reusable simple navigation bar for dashboard pages (e.g., Kaders, Mother, Other dashboards)
 - [ ] Map plan sections to UI components (menus, modules, widgets)
 - [ ] Define data models for progress tracking & reporting
 - [ ] Design API endpoints for content delivery & syncing

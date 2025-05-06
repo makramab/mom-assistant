@@ -3,6 +3,10 @@ import LandingPage from './components/LandingPage';
 import ChatInterface from './components/ChatInterface';
 import Marketplace from './pages/Marketplace';
 import CampaignDetail from './pages/CampaignDetail';
+import KadersDashboard from './pages/KadersDashboard';
+import MotherDashboard from './pages/MotherDashboard';
+import OtherDashboard from './pages/OtherDashboard';
+import About from './pages/About';
 
 function App() {
   return (
@@ -12,6 +16,10 @@ function App() {
         <Route path="/chat" element={<ChatInterface />} />
         <Route path="/marketplace" element={<Marketplace />} />
         <Route path="/marketplace/:id" element={<CampaignDetail />} />
+        <Route path="/dashboard/kader" element={<KadersDashboard />} />
+        <Route path="/dashboard/mother" element={<MotherDashboard />} />
+        <Route path="/dashboard/other" element={<OtherDashboard />} />
+        <Route path="/about" element={<About />} />
       </Routes>
     </Router>
   );
