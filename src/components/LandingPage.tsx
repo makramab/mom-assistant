@@ -131,35 +131,35 @@ const LandingPage = () => {
   return (
     <>
       <Navbar />
-      <div className="min-h-screen w-full flex flex-col bg-gradient-to-br from-[#0a0f1a] via-[#101a2b] to-[#1a2740] relative overflow-x-hidden">
+      <div className="min-h-screen w-full flex flex-col bg-gradient-to-br from-white via-teal-50 to-teal-100 relative overflow-x-hidden">
         {/* Decorative blue overlays for accent */}
         <div className="absolute inset-0 pointer-events-none z-0">
-          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[120vw] h-[40vh] bg-blue-700/30 rounded-b-full blur-2xl" />
-          <div className="absolute bottom-0 right-0 w-[60vw] h-[30vh] bg-blue-500/20 rounded-t-full blur-2xl" />
+          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[120vw] h-[40vh] bg-teal-100/60 rounded-b-full blur-2xl" />
+          <div className="absolute bottom-0 right-0 w-[60vw] h-[30vh] bg-teal-200/40 rounded-t-full blur-2xl" />
         </div>
         <main className="relative z-10 w-full max-w-4xl mx-auto flex flex-col items-center py-20 px-4">
           {/* Hero Section */}
-          <h1 className="text-5xl md:text-6xl font-extrabold text-white mb-3 text-center drop-shadow-lg">
+          <h1 className="text-5xl md:text-6xl font-extrabold text-gray-900 mb-3 text-center drop-shadow-lg">
             Welcome to SahabatSehat
           </h1>
-          <p className="text-xl md:text-2xl text-blue-300 mb-4 text-center font-medium italic drop-shadow">
+          <p className="text-xl md:text-2xl text-teal-600 mb-4 text-center font-medium italic drop-shadow">
             Your Health Companion, Every Step of the Way
           </p>
-          <p className="text-lg md:text-xl text-blue-100 mb-12 text-center max-w-2xl drop-shadow">
+          <p className="text-lg md:text-xl text-gray-700 mb-12 text-center max-w-2xl drop-shadow">
             Empowering families and health workers in Indonesia with personalized tools, education, and support for better maternal and child health outcomes.
           </p>
           {/* Video Placeholder - not part of #who */}
           <VideoPlaceholder />
           {/* User Type Selection */}
           <div id="who" className="w-full mb-16">
-            <h2 className="text-2xl font-bold text-blue-200 text-center mb-8 drop-shadow">Who are you?</h2>
+            <h2 className="text-2xl font-bold text-teal-400 text-center mb-8 drop-shadow">Who are you?</h2>
             {/* Carousel for mobile */}
             <div className="block md:hidden relative w-full max-w-xs mx-auto">
               <div className="flex justify-between items-center absolute top-1/2 left-0 right-0 z-20 px-2 -translate-y-1/2">
-                <button onClick={handlePrev} aria-label="Previous" className="rounded-full bg-blue-900/80 text-blue-200 hover:bg-blue-700/80 p-2 shadow-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                <button onClick={handlePrev} aria-label="Previous" className="rounded-full bg-teal-900/80 text-teal-200 hover:bg-teal-700/80 p-2 shadow-lg focus:outline-none focus:ring-2 focus:ring-teal-500">
                   <svg className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" /></svg>
                 </button>
-                <button onClick={handleNext} aria-label="Next" className="rounded-full bg-blue-900/80 text-blue-200 hover:bg-blue-700/80 p-2 shadow-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                <button onClick={handleNext} aria-label="Next" className="rounded-full bg-teal-900/80 text-teal-200 hover:bg-teal-700/80 p-2 shadow-lg focus:outline-none focus:ring-2 focus:ring-teal-500">
                   <svg className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" /></svg>
                 </button>
               </div>
@@ -175,23 +175,23 @@ const LandingPage = () => {
                     exit="exit"
                     transition={{ type: 'spring', stiffness: 300, damping: 30 }}
                     onClick={() => handleUserTypeSelect(userTypes[carouselIdx].key)}
-                    className={`w-full flex flex-col items-center p-8 bg-[#181f2e] rounded-3xl shadow-xl border-2 transition-all min-h-[220px] focus:outline-none focus:ring-2 focus:ring-blue-500 cursor-pointer
+                    className={`w-full flex flex-col items-center p-8 bg-teal-900 rounded-3xl shadow-xl border-2 transition-all min-h-[220px] focus:outline-none focus:ring-2 focus:ring-teal-500 cursor-pointer
                       ${selectedType === userTypes[carouselIdx].key ?
-                        'scale-105 border-blue-500 ring-4 ring-blue-400/40 z-10 shadow-2xl bg-gradient-to-br from-blue-900/80 to-blue-700/60 text-white animate-glow' :
-                        'border-transparent hover:border-blue-500 hover:scale-102 group'}
+                        'scale-105 border-teal-500 ring-4 ring-teal-400/40 z-10 shadow-2xl bg-gradient-to-br from-teal-900/80 to-teal-700/60 text-white animate-glow' :
+                        'border-transparent hover:border-teal-500 hover:scale-102 group'}
                     `}
-                    style={{ boxShadow: selectedType === userTypes[carouselIdx].key ? '0 0 32px 8px #3b82f6aa' : undefined }}
+                    style={{ boxShadow: selectedType === userTypes[carouselIdx].key ? '0 0 32px 8px #14b8a6aa' : undefined }}
                     aria-label={userTypes[carouselIdx].label}
                   >
-                    <span className={`text-5xl mb-3 transition-colors ${selectedType === userTypes[carouselIdx].key ? 'text-blue-300' : 'text-blue-100 group-hover:text-blue-300'}`} aria-hidden>{userTypes[carouselIdx].icon}</span>
-                    <span className={`font-bold mb-2 text-center text-lg transition-colors ${selectedType === userTypes[carouselIdx].key ? 'text-blue-100' : 'text-blue-100 group-hover:text-blue-400'}`}>{userTypes[carouselIdx].label}</span>
-                    <span className={`text-blue-200 text-sm text-center transition-colors ${selectedType === userTypes[carouselIdx].key ? 'text-blue-200' : 'text-blue-200/80'}`}>{userTypes[carouselIdx].description}</span>
+                    <span className={`text-5xl mb-3 transition-colors ${selectedType === userTypes[carouselIdx].key ? 'text-teal-300' : 'text-teal-100 group-hover:text-teal-300'}`} aria-hidden>{userTypes[carouselIdx].icon}</span>
+                    <span className={`font-bold mb-2 text-center text-lg transition-colors ${selectedType === userTypes[carouselIdx].key ? 'text-teal-600' : 'text-gray-900'}`}>{userTypes[carouselIdx].label}</span>
+                    <span className={`text-teal-200 text-sm text-center transition-colors ${selectedType === userTypes[carouselIdx].key ? 'text-teal-200' : 'text-teal-200/80'}`}>{userTypes[carouselIdx].description}</span>
                   </motion.button>
                 </AnimatePresence>
               </div>
               <div className="flex justify-center mt-4 gap-2">
                 {userTypes.map((_, idx) => (
-                  <span key={idx} className={`w-2 h-2 rounded-full ${carouselIdx === idx ? 'bg-blue-400' : 'bg-blue-900'}`}></span>
+                  <span key={idx} className={`w-2 h-2 rounded-full ${carouselIdx === idx ? 'bg-teal-400' : 'bg-teal-900'}`}></span>
                 ))}
               </div>
             </div>
@@ -205,20 +205,18 @@ const LandingPage = () => {
                     type="button"
                     whileHover={{ scale: 1.04 }}
                     whileTap={{ scale: 0.98 }}
-                    animate={isSelected ? { scale: 1.08, boxShadow: '0 0 40px 10px #3b82f6cc', zIndex: 10 } : { scale: 1, boxShadow: '0 2px 16px 0 #0004', zIndex: 1 }}
+                    animate={isSelected ? { scale: 1.08, boxShadow: '0 0 40px 10px #14b8a6cc', zIndex: 10 } : { scale: 1, boxShadow: '0 2px 16px 0 #0004', zIndex: 1 }}
                     transition={{ type: 'spring', stiffness: 300, damping: 30 }}
                     onClick={() => handleUserTypeSelect(type.key)}
-                    className={`flex flex-col items-center p-8 bg-[#181f2e] rounded-3xl shadow-xl border-2 transition-all min-h-[220px] focus:outline-none focus:ring-2 focus:ring-blue-500
-                      ${isSelected ?
-                        'border-blue-500 ring-4 ring-blue-400/40 bg-gradient-to-br from-blue-900/80 to-blue-700/60 text-white animate-glow' :
-                        'border-transparent hover:border-blue-500 group opacity-60 grayscale backdrop-blur-sm'}
-                    `}
-                    style={{ boxShadow: isSelected ? '0 0 40px 10px #3b82f6cc' : undefined }}
+                    className={`border rounded-3xl shadow-md p-8 flex flex-col items-center text-center transition-all duration-200 min-h-[220px] focus:outline-none
+                      ${isSelected ? 'bg-white border-teal-500 ring-2 ring-teal-200 shadow-lg' : 'bg-gray-50 border-gray-200 text-gray-400'}
+                      hover:border-teal-300 hover:shadow-lg`}
+                    style={{ boxShadow: isSelected ? '0 0 40px 10px #14b8a6aa, 0 0 0 8px #fff8' : undefined }}
                     aria-label={type.label}
                   >
-                    <span className={`text-5xl mb-3 transition-colors ${isSelected ? 'text-blue-300' : 'text-blue-100 group-hover:text-blue-300'}`} aria-hidden>{type.icon}</span>
-                    <span className={`font-bold mb-2 text-center text-lg transition-colors ${isSelected ? 'text-blue-100' : 'text-blue-100 group-hover:text-blue-400'}`}>{type.label}</span>
-                    <span className={`text-blue-200 text-sm text-center transition-colors ${isSelected ? 'text-blue-200' : 'text-blue-200/80'}`}>{type.description}</span>
+                    <span className={`text-5xl mb-3 transition-colors ${isSelected ? 'text-teal-300' : 'text-teal-100 group-hover:text-teal-300'}`} aria-hidden>{type.icon}</span>
+                    <span className={`font-bold mb-2 text-center text-lg transition-colors ${isSelected ? 'text-teal-600' : 'text-gray-900'}`}>{type.label}</span>
+                    <span className="text-gray-500 text-sm text-center">{type.description}</span>
                   </motion.button>
                 );
               })}
@@ -229,7 +227,7 @@ const LandingPage = () => {
                 onClick={handleContinue}
                 disabled={!selectedType}
                 className={`px-8 py-3 rounded-full font-semibold text-lg shadow-lg transition-all duration-200
-                  ${selectedType ? 'bg-blue-600 hover:bg-blue-700 text-white' : 'bg-blue-900 text-blue-400 cursor-not-allowed opacity-60'}`}
+                  ${selectedType ? 'bg-teal-600 hover:bg-teal-700 text-white' : 'bg-teal-900 text-teal-400 cursor-not-allowed opacity-60'}`}
               >
                 Continue
               </button>
@@ -237,31 +235,31 @@ const LandingPage = () => {
           </div>
           {/* Features Section */}
           <section id="why" className="w-full mb-16">
-            <h2 className="text-2xl font-bold text-white text-center mb-8 drop-shadow">Why SahabatSehat?</h2>
+            <h2 className="text-2xl font-bold text-teal-600 text-center mb-8 drop-shadow">Why SahabatSehat?</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               {features.map((feature) => (
-                <div key={feature.title} className="flex flex-col items-center bg-[#181f2e]/90 rounded-2xl shadow-lg p-8">
+                <div key={feature.title} className="flex flex-col items-center bg-white rounded-2xl shadow-md p-8 border border-gray-200">
                   <span className="text-4xl mb-2">{feature.icon}</span>
-                  <span className="font-semibold text-blue-100 mb-1 text-center text-lg">{feature.title}</span>
-                  <span className="text-blue-200 text-center text-sm">{feature.description}</span>
+                  <span className="font-semibold text-teal-700 mb-1 text-center text-lg">{feature.title}</span>
+                  <span className="text-gray-500 text-center text-sm">{feature.description}</span>
                 </div>
               ))}
             </div>
           </section>
           {/* FAQ Section */}
           <section id="faq" className="w-full mb-12">
-            <h2 className="text-2xl font-bold text-white text-center mb-8 drop-shadow">Frequently Asked Questions</h2>
+            <h2 className="text-2xl font-bold text-teal-600 text-center mb-8 drop-shadow">Frequently Asked Questions</h2>
             <div className="max-w-2xl mx-auto space-y-4">
               {faqs.map((faq, idx) => (
-                <div key={faq.question} className="bg-[#181f2e]/90 rounded-xl shadow p-4">
+                <div key={faq.question} className="bg-white rounded-xl shadow-md p-4 border border-gray-200">
                   <button
-                    className="w-full flex justify-between items-center text-left font-semibold text-blue-100 text-lg focus:outline-none"
+                    className="w-full flex justify-between items-center text-left font-semibold text-teal-700 text-lg focus:outline-none"
                     onClick={() => handleFaqClick(idx)}
                     aria-expanded={openFaq === idx}
                     aria-controls={`faq-answer-${idx}`}
                   >
                     {faq.question}
-                    <span className="ml-2 text-blue-400">{openFaq === idx ? '−' : '+'}</span>
+                    <span className="ml-2 text-teal-400">{openFaq === idx ? '−' : '+'}</span>
                   </button>
                   <AnimatePresence initial={false}>
                     {openFaq === idx && (
@@ -273,7 +271,7 @@ const LandingPage = () => {
                         transition={{ duration: 0.3, ease: 'easeInOut' }}
                         className="overflow-hidden mt-2"
                       >
-                        <div className="text-blue-200 text-base animate-fade-in">
+                        <div className="text-gray-500 text-base animate-fade-in">
                           {faq.answer}
                         </div>
                       </motion.div>
@@ -284,7 +282,7 @@ const LandingPage = () => {
             </div>
           </section>
         </main>
-        <footer className="w-full text-center text-blue-300 py-8 text-sm mt-auto relative z-10">
+        <footer className="w-full text-center text-teal-400 py-8 text-sm mt-auto relative z-10">
           © 2024 SahabatSehat. All rights reserved.
         </footer>
       </div>
