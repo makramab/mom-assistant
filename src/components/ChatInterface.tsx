@@ -57,13 +57,13 @@ const ChatInterface: React.FC = () => {
         {
           id: '1',
           type: 'ai',
-          content: "Hi! I'm your baby development assistant. How can I help you today?",
+          content: "Hi! I'm your ChildBright Assistant. How can I help you today?",
           timestamp: new Date()
         },
         {
           id: '2',
           type: 'ai',
-          content: "I can help you assess your baby's development. Let's start with a few questions about their milestones.",
+          content: "I can help you assess your child's development. Let's start with a few questions about their milestones.",
           timestamp: new Date(),
           showActions: true
         }
@@ -113,7 +113,7 @@ const ChatInterface: React.FC = () => {
       setMessages(prev => [...prev, {
         id: Date.now().toString(),
         type: 'ai',
-        content: "Great! Let's start with some basic questions. How old is your baby?",
+        content: "Great! Let's start with some basic questions. How old is your child?",
         timestamp: new Date()
       }]);
     }, 1000);
@@ -147,7 +147,7 @@ const ChatInterface: React.FC = () => {
           <div className="flex items-center">
             <div className={`flex items-center gap-2 py-4 px-4 ${!isSidebarOpen ? 'ml-12' : ''} transition-[margin] duration-300`}>
               <div className="w-2 h-2 bg-teal-500 rounded-full"></div>
-              <span className="text-sm font-medium text-gray-600">AI Assistant Active</span>
+              <span className="text-sm font-medium text-gray-600">ChildBright Assistant is online</span>
             </div>
           </div>
 

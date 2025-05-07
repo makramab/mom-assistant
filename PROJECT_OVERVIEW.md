@@ -1,7 +1,7 @@
-# SahabatSehat Platform: Project Overview
+# ChildBright Platform: Project Overview
 
 ## Vision
-SahabatSehat is an integrated digital platform designed to improve maternal and child health outcomes in Indonesia. It empowers Community Health Workers (Kaders), Mothers, and other stakeholders (government, private sector) with personalized tools, educational resources, and data-driven support to drive positive health behaviors and program impact.
+ChildBright is an integrated digital platform designed to improve maternal and child health outcomes in Indonesia. It empowers Community Health Workers (Kaders), Mothers, and other stakeholders (government, private sector) with personalized tools, educational resources, and data-driven support to drive positive health behaviors and program impact.
 
 ## User Types & Experiences
 
@@ -43,4 +43,4 @@ SahabatSehat is an integrated digital platform designed to improve maternal and 
 
 ---
 
-This document provides a high-level summary of the SahabatSehat platform. For detailed implementation steps, see TODO.md. For feature breakdowns and curriculum, see UPDATED_NEWEST_PLAN.md. 
+This document provides a high-level summary of the ChildBright platform. For detailed implementation steps, see TODO.md. For feature breakdowns and curriculum, see UPDATED_NEWEST_PLAN.md. 

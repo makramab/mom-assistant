@@ -49,16 +49,16 @@ const features = [
 
 const faqs = [
   {
-    question: 'Who can use SahabatSehat?',
-    answer: 'Community Health Workers (Kaders), mothers, and institutional partners (government/private sector) can all use SahabatSehat.'
+    question: 'Who can use ChildBright?',
+    answer: 'Community Health Workers (Kaders), mothers, and institutional partners (government/private sector) can all use ChildBright.'
   },
   {
     question: 'Do I need to log in to get started?',
     answer: 'No login is required to begin. Simply select your user type to access personalized tools and resources.'
   },
   {
-    question: 'Is SahabatSehat free to use?',
-    answer: 'Yes, SahabatSehat is free for individual users. Some advanced features for organizations may require partnership.'
+    question: 'Is ChildBright free to use?',
+    answer: 'Yes, ChildBright is free for individual users. Some advanced features for organizations may require partnership.'
   }
 ];
 
@@ -140,8 +140,12 @@ const LandingPage = () => {
         </div>
         <main className="relative z-10 w-full max-w-4xl mx-auto flex flex-col items-center py-20 px-4">
           {/* Hero Section */}
-          <h1 className="text-5xl md:text-6xl font-extrabold text-gray-900 mb-3 text-center drop-shadow-lg">
-            Welcome to SahabatSehat
+          <h1 className="text-5xl md:text-6xl font-extrabold text-center drop-shadow-lg mb-3">
+            <span className="text-gray-700">Welcome to</span>{' '}
+            <span className="block mt-2">
+              <span className="text-teal-600" style={{ fontFamily: 'Montserrat, Inter, Arial, sans-serif' }}>Child</span>
+              <span className="text-teal-500" style={{ fontFamily: 'Montserrat, Inter, Arial, sans-serif' }}>Bright</span>
+            </span>
           </h1>
           <p className="text-xl md:text-2xl text-teal-600 mb-4 text-center font-medium italic drop-shadow">
             Your Health Companion, Every Step of the Way
@@ -151,18 +155,22 @@ const LandingPage = () => {
           </p>
           {/* Landing Chat Box */}
           <section className="w-full flex flex-col items-center mb-12">
-            <h3 className="text-xl font-semibold text-teal-700 mb-2 text-center">Ask SahabatSehat</h3>
+            <h3 className="text-xl font-semibold text-teal-700 mb-2 text-center">Ask ChildBright</h3>
             <p className="text-gray-600 text-center mb-4 max-w-xl">
-              Need help or have a question about maternal and child health? Ask anything about pregnancy, child development, nutrition, or how to use SahabatSehat. Our assistant is here to guide you and connect you with the right resources instantly.
+              Need help or have a question about maternal and child health? Ask anything about pregnancy, child development, nutrition, or how to use ChildBright. Our assistant is here to guide you and connect you with the right resources instantly.
             </p>
-            <div className="w-full max-w-2xl mx-auto bg-white rounded-2xl shadow-md p-6 flex flex-col items-center border border-gray-200">
+            <motion.div
+              className="w-full max-w-2xl mx-auto bg-white rounded-2xl shadow-md p-6 flex flex-col items-center border border-gray-200"
+              animate={{ y: [0, -12, 0, 12, 0] }}
+              transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+            >
               <div className="w-full mb-4">
                 <div className="flex items-center gap-2 mb-2">
                   <span className="inline-block w-3 h-3 rounded-full bg-green-400"></span>
-                  <span className="text-sm text-gray-500">SahabatSehat Assistant is online</span>
+                  <span className="text-sm text-gray-500">ChildBright Assistant is online</span>
                 </div>
                 <div className="bg-teal-50 border border-teal-100 rounded-xl px-4 py-3 text-gray-700 text-base">
-                  Hi! I'm your SahabatSehat assistant. How can I help you today?
+                  Hi! I'm your ChildBright assistant. How can I help you today?
                 </div>
               </div>
               <form
@@ -189,7 +197,7 @@ const LandingPage = () => {
                   Send
                 </button>
               </form>
-            </div>
+            </motion.div>
           </section>
           {/* User Type Selection */}
           <div id="who" className="w-full mb-16">
@@ -276,7 +284,7 @@ const LandingPage = () => {
           </div>
           {/* Features Section */}
           <section id="why" className="w-full mb-16">
-            <h2 className="text-2xl font-bold text-teal-600 text-center mb-8 drop-shadow">Why SahabatSehat?</h2>
+            <h2 className="text-2xl font-bold text-teal-600 text-center mb-8 drop-shadow">Why ChildBright?</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               {features.map((feature) => (
                 <div key={feature.title} className="flex flex-col items-center bg-white rounded-2xl shadow-md p-8 border border-gray-200">
@@ -324,7 +332,7 @@ const LandingPage = () => {
           </section>
         </main>
         <footer className="w-full text-center text-teal-400 py-8 text-sm mt-auto relative z-10">
-          © 2024 SahabatSehat. All rights reserved.
+          © 2024 ChildBright. All rights reserved.
         </footer>
       </div>
     </>
