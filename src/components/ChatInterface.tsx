@@ -13,7 +13,7 @@ interface Message {
 
 const TypingIndicator = () => (
   <div className="flex items-start space-x-4">
-    <div className="flex-shrink-0 w-8 h-8 rounded-full bg-purple-600 flex items-center justify-center">
+    <div className="flex-shrink-0 w-8 h-8 rounded-full bg-teal-600 flex items-center justify-center">
       <span className="text-xs font-medium text-white">AI</span>
     </div>
     <div className="flex-1">
@@ -146,7 +146,7 @@ const ChatInterface: React.FC = () => {
         >
           <div className="flex items-center">
             <div className={`flex items-center gap-2 py-4 px-4 ${!isSidebarOpen ? 'ml-12' : ''} transition-[margin] duration-300`}>
-              <div className="w-2 h-2 bg-green-500 rounded-full"></div>
+              <div className="w-2 h-2 bg-teal-500 rounded-full"></div>
               <span className="text-sm font-medium text-gray-600">AI Assistant Active</span>
             </div>
           </div>
@@ -155,10 +155,10 @@ const ChatInterface: React.FC = () => {
             href="/"
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
-            className="mr-4 flex items-center gap-2 px-3 py-1.5 rounded-full bg-gradient-to-r from-purple-50 to-blue-50 border border-purple-100/50 text-sm text-gray-600 hover:text-purple-700 hover:border-purple-200/75 transition-colors duration-200 group"
+            className="mr-4 flex items-center gap-2 px-3 py-1.5 rounded-full bg-gradient-to-r from-teal-50 to-teal-50 border border-teal-100/50 text-sm text-gray-600 hover:text-teal-700 hover:border-teal-200/75 transition-colors duration-200 group"
           >
             <svg 
-              className="w-4 h-4 text-purple-500 group-hover:text-purple-600 transition-colors" 
+              className="w-4 h-4 text-teal-500 group-hover:text-teal-600 transition-colors" 
               fill="none" 
               stroke="currentColor" 
               viewBox="0 0 24 24"
@@ -195,7 +195,7 @@ const ChatInterface: React.FC = () => {
                       <motion.div
                         whileHover={{ scale: 1.1 }}
                         className={`flex-shrink-0 w-8 h-8 rounded-full ${
-                          message.type === 'ai' ? 'bg-purple-600' : 'bg-blue-600'
+                          message.type === 'ai' ? 'bg-teal-600' : 'bg-teal-600'
                         } flex items-center justify-center`}
                       >
                         <span className="text-xs font-medium text-white">
@@ -208,8 +208,8 @@ const ChatInterface: React.FC = () => {
                           animate={{ scale: 1 }}
                           className={`${
                             message.type === 'ai' 
-                              ? 'bg-gray-50 rounded-2xl rounded-tl-none' 
-                              : 'bg-blue-600 rounded-2xl rounded-tr-none text-white'
+                              ? 'bg-teal-50 border border-teal-100 text-teal-900 rounded-2xl rounded-tl-none' 
+                              : 'bg-teal-600 rounded-2xl rounded-tr-none text-white'
                           } p-4 shadow-sm max-w-[85%] inline-block`}
                         >
                           <p className={message.type === 'user' ? 'text-white' : 'text-gray-800'}>
@@ -226,7 +226,7 @@ const ChatInterface: React.FC = () => {
                                 whileHover={{ scale: 1.05 }}
                                 whileTap={{ scale: 0.95 }}
                                 onClick={() => setIsAssessmentModalOpen(true)}
-                                className="bg-purple-600 text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-purple-700 transition-colors"
+                                className="bg-teal-600 text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-teal-700 transition-colors"
                               >
                                 Launch Assessment
                               </motion.button>
@@ -234,7 +234,7 @@ const ChatInterface: React.FC = () => {
                                 whileHover={{ scale: 1.05 }}
                                 whileTap={{ scale: 0.95 }}
                                 onClick={handleAskQuestionsFirst}
-                                className="bg-gray-200 text-gray-700 px-4 py-2 rounded-lg text-sm font-medium hover:bg-gray-300 transition-colors"
+                                className="bg-teal-50 text-teal-700 px-4 py-2 rounded-lg text-sm font-medium hover:bg-teal-100 transition-colors border border-teal-100"
                               >
                                 Ask Questions First
                               </motion.button>
@@ -269,7 +269,7 @@ const ChatInterface: React.FC = () => {
           transition={{ duration: 0.3 }}
           className="border-t border-gray-100 bg-white px-8 py-4"
         >
-          <div className="flex items-center bg-gray-50 hover:bg-gray-100/50 focus-within:bg-white rounded-xl p-3 transition-colors duration-200 shadow-sm">
+          <div className="flex items-center bg-teal-50 hover:bg-teal-100/50 focus-within:bg-white rounded-xl p-3 transition-colors duration-200 shadow-sm border border-teal-100">
             <input
               ref={inputRef}
               type="text"
@@ -286,8 +286,8 @@ const ChatInterface: React.FC = () => {
               disabled={!inputMessage.trim()}
               className={`ml-3 p-2 rounded-lg transition-colors ${
                 inputMessage.trim()
-                  ? 'bg-purple-600 text-white hover:bg-purple-700'
-                  : 'bg-gray-200 text-gray-400 cursor-not-allowed'
+                  ? 'bg-teal-600 text-white hover:bg-teal-700'
+                  : 'bg-teal-100 text-teal-300 cursor-not-allowed'
               }`}
             >
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">

@@ -89,6 +89,7 @@ const LandingPage = () => {
   const [carouselIdx, setCarouselIdx] = useState(0);
   const [direction, setDirection] = useState(0);
   const faqTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const [chatInput, setChatInput] = useState("");
 
   const handleUserTypeSelect = (userType: string) => {
     setSelectedType(userType);
@@ -148,8 +149,48 @@ const LandingPage = () => {
           <p className="text-lg md:text-xl text-gray-700 mb-12 text-center max-w-2xl drop-shadow">
             Empowering families and health workers in Indonesia with personalized tools, education, and support for better maternal and child health outcomes.
           </p>
-          {/* Video Placeholder - not part of #who */}
-          <VideoPlaceholder />
+          {/* Landing Chat Box */}
+          <section className="w-full flex flex-col items-center mb-12">
+            <h3 className="text-xl font-semibold text-teal-700 mb-2 text-center">Ask SahabatSehat</h3>
+            <p className="text-gray-600 text-center mb-4 max-w-xl">
+              Need help or have a question about maternal and child health? Ask anything about pregnancy, child development, nutrition, or how to use SahabatSehat. Our assistant is here to guide you and connect you with the right resources instantly.
+            </p>
+            <div className="w-full max-w-2xl mx-auto bg-white rounded-2xl shadow-md p-6 flex flex-col items-center border border-gray-200">
+              <div className="w-full mb-4">
+                <div className="flex items-center gap-2 mb-2">
+                  <span className="inline-block w-3 h-3 rounded-full bg-green-400"></span>
+                  <span className="text-sm text-gray-500">SahabatSehat Assistant is online</span>
+                </div>
+                <div className="bg-teal-50 border border-teal-100 rounded-xl px-4 py-3 text-gray-700 text-base">
+                  Hi! I'm your SahabatSehat assistant. How can I help you today?
+                </div>
+              </div>
+              <form
+                className="w-full flex items-end gap-2"
+                onSubmit={e => {
+                  e.preventDefault();
+                  if (chatInput.trim()) {
+                    navigate('/chat');
+                  }
+                }}
+              >
+                <input
+                  type="text"
+                  placeholder="Type your question here..."
+                  className="flex-1 border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-transparent text-gray-800 bg-white"
+                  value={chatInput}
+                  onChange={e => setChatInput(e.target.value)}
+                />
+                <button
+                  type="submit"
+                  className={`bg-teal-600 text-white px-6 py-2 rounded-lg transition-opacity ${chatInput.trim() ? 'opacity-100 cursor-pointer hover:bg-teal-700' : 'opacity-60 cursor-not-allowed'}`}
+                  disabled={!chatInput.trim()}
+                >
+                  Send
+                </button>
+              </form>
+            </div>
+          </section>
           {/* User Type Selection */}
           <div id="who" className="w-full mb-16">
             <h2 className="text-2xl font-bold text-teal-400 text-center mb-8 drop-shadow">Who are you?</h2>
@@ -290,54 +331,54 @@ const LandingPage = () => {
   );
 };
 
-function VideoPlaceholder() {
-  const [play, setPlay] = useState(false);
-  const thumbnail = "https://img.youtube.com/vi/9IJHDxePK2E/maxresdefault.jpg";
-  return (
-    <div style={{ width: '100%', maxWidth: 900, margin: '0 auto 2.5rem auto', display: 'flex', justifyContent: 'center' }}>
-      <div
-        className="shadow-xl rounded-3xl p-2"
-        style={{ width: '100%', maxWidth: 720, background: 'rgba(16,26,43,0.5)', border: '1.5px solid rgba(255,255,255,0.25)', backdropFilter: 'blur(4px)' }}
-      >
-        <div style={{ position: 'relative', width: '100%', paddingBottom: '56.25%', borderRadius: '1.25rem', overflow: 'hidden', background: '#222' }}>
-          {play ? (
-            <iframe
-              src="https://www.youtube.com/embed/9IJHDxePK2E?autoplay=1"
-              title="YouTube video player"
-              frameBorder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              allowFullScreen
-              style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%' }}
-            />
-          ) : (
-            <button
-              onClick={() => setPlay(true)}
-              style={{
-                position: 'absolute',
-                top: 0,
-                left: 0,
-                width: '100%',
-                height: '100%',
-                background: `url(${thumbnail}) center 30% / cover no-repeat`,
-                border: 'none',
-                cursor: 'pointer',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                padding: 0,
-              }}
-              aria-label="Play video"
-            >
-              <svg width="80" height="80" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ filter: 'drop-shadow(0 2px 8px #0008)' }}>
-                <circle cx="40" cy="40" r="40" fill="#000" fillOpacity="0.6" />
-                <polygon points="32,24 60,40 32,56" fill="#fff" />
-              </svg>
-            </button>
-          )}
-        </div>
-      </div>
-    </div>
-  );
-}
+// function VideoPlaceholder() {
+//   const [play, setPlay] = useState(false);
+//   const thumbnail = "https://img.youtube.com/vi/9IJHDxePK2E/maxresdefault.jpg";
+//   return (
+//     <div style={{ width: '100%', maxWidth: 900, margin: '0 auto 2.5rem auto', display: 'flex', justifyContent: 'center' }}>
+//       <div
+//         className="shadow-xl rounded-3xl p-2"
+//         style={{ width: '100%', maxWidth: 720, background: 'rgba(16,26,43,0.5)', border: '1.5px solid rgba(255,255,255,0.25)', backdropFilter: 'blur(4px)' }}
+//       >
+//         <div style={{ position: 'relative', width: '100%', paddingBottom: '56.25%', borderRadius: '1.25rem', overflow: 'hidden', background: '#222' }}>
+//           {play ? (
+//             <iframe
+//               src="https://www.youtube.com/embed/9IJHDxePK2E?autoplay=1"
+//               title="YouTube video player"
+//               frameBorder="0"
+//               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+//               allowFullScreen
+//               style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%' }}
+//             />
+//           ) : (
+//             <button
+//               onClick={() => setPlay(true)}
+//               style={{
+//                 position: 'absolute',
+//                 top: 0,
+//                 left: 0,
+//                 width: '100%',
+//                 height: '100%',
+//                 background: `url(${thumbnail}) center 30% / cover no-repeat`,
+//                 border: 'none',
+//                 cursor: 'pointer',
+//                 display: 'flex',
+//                 alignItems: 'center',
+//                 justifyContent: 'center',
+//                 padding: 0,
+//               }}
+//               aria-label="Play video"
+//             >
+//               <svg width="80" height="80" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ filter: 'drop-shadow(0 2px 8px #0008)' }}>
+//                 <circle cx="40" cy="40" r="40" fill="#000" fillOpacity="0.6" />
+//                 <polygon points="32,24 60,40 32,56" fill="#fff" />
+//               </svg>
+//             </button>
+//           )}
+//         </div>
+//       </div>
+//     </div>
+//   );
+// }
 
 export default LandingPage; 
