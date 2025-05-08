@@ -1,6 +1,6 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import LandingPage from './components/LandingPage';
-import ChatInterface from './components/ChatInterface';
+import ChatPage from './pages/ChatPage';
 import Marketplace from './pages/Marketplace';
 import CampaignDetail from './pages/CampaignDetail';
 import KadersDashboard from './pages/KadersDashboard';
@@ -13,7 +13,7 @@ function App() {
     <Router>
       <Routes>
         <Route path="/" element={<LandingPage />} />
-        <Route path="/chat" element={<ChatInterface />} />
+        <Route path="/chat" element={<ChatPage />} />
         <Route path="/marketplace" element={<Marketplace />} />
         <Route path="/marketplace/:id" element={<CampaignDetail />} />
         <Route path="/dashboard/kader" element={<KadersDashboard />} />

@@ -1,4 +1,4 @@
-import SimpleNav from '../components/SimpleNav';
+import Navbar from '../components/Navbar';
 import { motion } from 'framer-motion';
 
 const values = [
@@ -84,7 +84,7 @@ const coreFunctions = [
 
 const About = () => (
   <>
-    <SimpleNav />
+    <Navbar page="about" />
     <div className="min-h-screen w-full flex flex-col bg-gradient-to-br from-white via-teal-50 to-teal-100 relative overflow-x-hidden">
       {/* Hero Illustration */}
       <div className="absolute inset-0 pointer-events-none z-0">
@@ -109,11 +109,11 @@ const About = () => (
         </div>
         {/* Vision & Mission */}
         <section className="w-full grid md:grid-cols-2 gap-8">
-          <motion.div initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: 0.1 }} className="bg-white rounded-2xl shadow-lg border border-teal-100 p-8 flex flex-col items-center">
+          <motion.div id="vision" initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: 0.1 }} className="bg-white rounded-2xl shadow-lg border border-teal-100 p-8 flex flex-col items-center">
             <span className="text-2xl font-bold text-teal-700 mb-2">Vision</span>
             <p className="text-gray-800 text-center font-medium">To create a brighter future for children, by empowering every mother and community health worker (cadre) with the knowledge and tools needed to ensure healthy, thriving families in every corner of Indonesia.</p>
           </motion.div>
-          <motion.div initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: 0.2 }} className="bg-white rounded-2xl shadow-lg border border-teal-100 p-8 flex flex-col items-center">
+          <motion.div id="mission" initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: 0.2 }} className="bg-white rounded-2xl shadow-lg border border-teal-100 p-8 flex flex-col items-center">
             <span className="text-2xl font-bold text-teal-700 mb-2">Mission</span>
             <p className="text-gray-800 text-center font-medium">To bridge the gap in maternal and child healthcare equity by providing inclusive, tech-driven solutions that support mothers, empower community health workers, and strengthen local healthcare systems.</p>
           </motion.div>
@@ -125,7 +125,7 @@ const About = () => (
           </svg>
         </div>
         {/* Values & Rationale */}
-        <section className="w-full">
+        <section id="values" className="w-full">
           <h2 className="text-2xl md:text-3xl font-bold text-teal-700 mb-6 flex items-center gap-2"><svg className="w-7 h-7 text-teal-400" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" /></svg>Values & Rationale</h2>
           <div className="grid md:grid-cols-2 gap-8">
             {values.map((v, i) => (
@@ -144,7 +144,7 @@ const About = () => (
           </svg>
         </div>
         {/* Core Functions */}
-        <section className="w-full">
+        <section id="core-functions" className="w-full">
           <h2 className="text-2xl md:text-3xl font-bold text-teal-700 mb-6 flex items-center gap-2"><svg className="w-7 h-7 text-teal-400" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M9 12h6m-3-3v6" /></svg>Core Functions</h2>
           <div className="grid md:grid-cols-2 gap-8">
             {coreFunctions.map((f, i) => (

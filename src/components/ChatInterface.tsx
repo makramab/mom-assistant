@@ -11,6 +11,11 @@ interface Message {
   showActions?: boolean;
 }
 
+interface ChatInterfaceProps {
+  initialInput?: string;
+  initialMessages?: Message[];
+}
+
 const TypingIndicator = () => (
   <div className="flex items-start space-x-4">
     <div className="flex-shrink-0 w-8 h-8 rounded-full bg-teal-600 flex items-center justify-center">
@@ -31,14 +36,15 @@ const TypingIndicator = () => (
   </div>
 );
 
-const ChatInterface: React.FC = () => {
-  const [messages, setMessages] = useState<Message[]>([]);
-  const [inputMessage, setInputMessage] = useState('');
+const ChatInterface: React.FC<ChatInterfaceProps> = ({ initialInput, initialMessages }) => {
+  const [messages, setMessages] = useState<Message[]>(initialMessages || []);
+  const [inputMessage, setInputMessage] = useState(initialInput || '');
   const [isTyping, setIsTyping] = useState(false);
   const [isAssessmentModalOpen, setIsAssessmentModalOpen] = useState(false);
   const [isSidebarOpen, setIsSidebarOpen] = useState(true);
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
+  const aiRespondedRef = useRef(false);
   
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
@@ -49,30 +55,70 @@ const ChatInterface: React.FC = () => {
   }, [messages, isTyping]);
 
   useEffect(() => {
-    // Add initial AI greeting with typing animation
+    if (initialInput === undefined) {
+      console.log('ChatInterface: initialInput is undefined, skipping effect');
+      return; // Wait until initialInput is loaded
+    }
+    if (aiRespondedRef.current) return; // Prevent double AI response
+    aiRespondedRef.current = true;
+    console.log('ChatInterface useEffect triggered');
+    console.log('initialInput:', initialInput);
+    console.log('initialMessages:', initialMessages);
+    // Only show default AI greeting if no initial messages
+    if (initialMessages && initialMessages.length > 0) return;
     setIsTyping(true);
     setTimeout(() => {
       setIsTyping(false);
-      setMessages([
+      const aiMessages: Message[] = [
         {
           id: '1',
           type: 'ai',
           content: "Hi! I'm your ChildBright Assistant. How can I help you today?",
           timestamp: new Date()
-        },
-        {
-          id: '2',
-          type: 'ai',
-          content: "I can help you assess your child's development. Let's start with a few questions about their milestones.",
-          timestamp: new Date(),
-          showActions: true
         }
-      ]);
+      ];
+      // If initialInput is present, add it as a user message after the AI greeting
+      if (initialInput && initialInput.trim()) {
+        const userMsg: Message = {
+          id: Date.now().toString(),
+          type: 'user',
+          content: initialInput.trim(),
+          timestamp: new Date()
+        };
+        const newMessages = [
+          ...aiMessages,
+          userMsg
+        ];
+        console.log('Setting messages with user input:', newMessages);
+        setMessages(newMessages);
+        setInputMessage('');
+        // Simulate AI thinking and typing, just like handleSendMessage
+        setIsTyping(true);
+        setTimeout(() => {
+          const aiMessage: Message = {
+            id: (Date.now() + 1).toString(),
+            type: 'ai',
+            content: "I understand you want to discuss your baby's development. Let me ask some specific questions to better assist you.",
+            timestamp: new Date()
+          };
+          setIsTyping(false);
+          setMessages(prev => [...prev, aiMessage]);
+        }, 2000);
+        setTimeout(() => {
+          console.log('Final messages state (user input):', newMessages);
+        }, 0);
+      } else {
+        console.log('Setting messages with only AI greeting:', aiMessages);
+        setMessages(aiMessages);
+        setTimeout(() => {
+          console.log('Final messages state (AI only):', aiMessages);
+        }, 0);
+      }
     }, 1500);
 
     // Focus input on mount
     inputRef.current?.focus();
-  }, []);
+  }, [initialInput, initialMessages]);
 
   const handleSendMessage = () => {
     if (!inputMessage.trim()) return;

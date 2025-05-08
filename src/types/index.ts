@@ -16,4 +16,11 @@ export interface UserSettings {
   theme: 'light' | 'dark';
   notifications: boolean;
   language: string;
+}
+
+export interface ChatContextType {
+  input: string;
+  setInput: (input: string) => void;
+  initialMessages: Message[];
+  setInitialMessages: (messages: Message[]) => void;
 } 

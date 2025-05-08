@@ -101,6 +101,14 @@ const LandingPage = () => {
     }
   };
 
+  const handleContinueToChat = () => {
+    if (chatInput.trim()) {
+      sessionStorage.setItem('chatInput', chatInput);
+      console.log('LandingPage: chatInput saved to sessionStorage:', chatInput);
+      navigate('/chat');
+    }
+  };
+
   const handlePrev = () => {
     setDirection(-1);
     setCarouselIdx((prev) => (prev === 0 ? userTypes.length - 1 : prev - 1));
@@ -177,9 +185,7 @@ const LandingPage = () => {
                 className="w-full flex items-end gap-2"
                 onSubmit={e => {
                   e.preventDefault();
-                  if (chatInput.trim()) {
-                    navigate('/chat');
-                  }
+                  handleContinueToChat();
                 }}
               >
                 <input
