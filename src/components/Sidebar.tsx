@@ -41,16 +41,20 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, onToggle }) => {
             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" />
             </svg>
-            New Assessment Chat
+            New Chat
           </button>
         </div>
 
         {/* Conversations List */}
         <div className="flex-1 overflow-y-auto">
           <div className="px-2.5">
-            <h2 className="px-2 mb-2 text-xs font-medium text-gray-500">Recent Assessments</h2>
+            <h2 className="px-2 mb-2 text-xs font-medium text-gray-500">Recent Chats</h2>
             <div className="space-y-1">
-              {[1, 2, 3].map((index) => (
+              {[
+                "Mother's Growth Monitoring",
+                "Kader E-Learning Progress",
+                "Program Dashboard Insights"
+              ].map((label, index) => (
                 <button
                   key={index}
                   className="w-full flex items-center gap-3 rounded-lg px-3 py-3 text-sm hover:bg-white transition-colors text-left text-gray-700"
@@ -58,7 +62,7 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, onToggle }) => {
                   <svg className="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z" />
                   </svg>
-                  Development Assessment {index}
+                  {label}
                 </button>
               ))}
             </div>
