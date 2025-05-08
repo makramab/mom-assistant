@@ -7,5 +7,10 @@ module.exports = {
   theme: {
     extend: {},
   },
-  plugins: [],
+  plugins: [
+    require('@tailwindcss/typography'),
+  ],
+  safelist: [
+    'prose', 'prose-teal', 'max-w-none'
+  ],
 } 
