@@ -2,6 +2,11 @@ import React, { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import AssessmentModal from './AssessmentModal';
 import Sidebar from './Sidebar';
+import { GoogleGenAI } from '@google/genai';
+
+const GEMINI_API_KEY = "AIzaSyB253O79ryjGBUfYba2NYZ2uRnb6s1HWl8";
+const GEMINI_MODEL = "gemini-2.0-flash";
+const ai = new GoogleGenAI({ apiKey: GEMINI_API_KEY });
 
 interface Message {
   id: string;
@@ -92,21 +97,8 @@ const ChatInterface: React.FC<ChatInterfaceProps> = ({ initialInput, initialMess
         console.log('Setting messages with user input:', newMessages);
         setMessages(newMessages);
         setInputMessage('');
-        // Simulate AI thinking and typing, just like handleSendMessage
-        setIsTyping(true);
-        setTimeout(() => {
-          const aiMessage: Message = {
-            id: (Date.now() + 1).toString(),
-            type: 'ai',
-            content: "I understand you want to discuss your baby's development. Let me ask some specific questions to better assist you.",
-            timestamp: new Date()
-          };
-          setIsTyping(false);
-          setMessages(prev => [...prev, aiMessage]);
-        }, 2000);
-        setTimeout(() => {
-          console.log('Final messages state (user input):', newMessages);
-        }, 0);
+        // Call Gemini API for AI response
+        fetchGeminiResponse(initialInput.trim(), newMessages);
       } else {
         console.log('Setting messages with only AI greeting:', aiMessages);
         setMessages(aiMessages);
@@ -114,38 +106,52 @@ const ChatInterface: React.FC<ChatInterfaceProps> = ({ initialInput, initialMess
           console.log('Final messages state (AI only):', aiMessages);
         }, 0);
       }
-    }, 1500);
+    }, 10);
 
     // Focus input on mount
     inputRef.current?.focus();
   }, [initialInput, initialMessages]);
 
+  const fetchGeminiResponse = async (prompt: string, currentMessages: Message[]) => {
+    setIsTyping(true);
+    try {
+      const response = await ai.models.generateContent({
+        model: GEMINI_MODEL,
+        contents: prompt,
+      });
+      const aiMessage: Message = {
+        id: (Date.now() + 1).toString(),
+        type: 'ai',
+        content: response.text || 'Sorry, I could not generate a response.',
+        timestamp: new Date()
+      };
+      setIsTyping(false);
+      setMessages([...currentMessages, aiMessage]);
+    } catch (err) {
+      setIsTyping(false);
+      const aiMessage: Message = {
+        id: (Date.now() + 1).toString(),
+        type: 'ai',
+        content: 'Sorry, there was an error contacting the AI service.',
+        timestamp: new Date()
+      };
+      setMessages([...currentMessages, aiMessage]);
+    }
+  };
+
   const handleSendMessage = () => {
     if (!inputMessage.trim()) return;
-
     const userMessage: Message = {
       id: Date.now().toString(),
       type: 'user',
       content: inputMessage.trim(),
       timestamp: new Date()
     };
-
     setMessages(prev => prev.map(msg => ({ ...msg, showActions: false })));
-    setMessages(prev => [...prev, userMessage]);
+    const newMessages = [...messages, userMessage];
+    setMessages(newMessages);
     setInputMessage('');
-    setIsTyping(true);
-
-    // Simulate AI thinking and typing
-    setTimeout(() => {
-      const aiMessage: Message = {
-        id: (Date.now() + 1).toString(),
-        type: 'ai',
-        content: "I understand you want to discuss your baby's development. Let me ask some specific questions to better assist you.",
-        timestamp: new Date()
-      };
-      setIsTyping(false);
-      setMessages(prev => [...prev, aiMessage]);
-    }, 2000);
+    fetchGeminiResponse(inputMessage.trim(), newMessages);
   };
 
   const handleAskQuestionsFirst = () => {
