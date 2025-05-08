@@ -19,7 +19,7 @@ function App() {
         <Route path="/dashboard/kader" element={<KadersDashboard />} />
         <Route path="/dashboard/mother" element={<MotherDashboard />} />
         <Route path="/dashboard/other" element={<OtherDashboard />} />
-        <Route path="/about" element={<About />} />
+        <Route path="/about-us" element={<About />} />
       </Routes>
     </Router>
   );

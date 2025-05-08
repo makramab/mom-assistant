@@ -138,7 +138,7 @@ const Navbar = () => {
         {/* Right: Auth Buttons */}
         <div className={`flex-1 flex justify-end gap-3 ${isFloating ? '' : 'mr-8'}`}>
           <a
-            href="/about"
+            href="/about-us"
             className="text-base font-semibold px-5 py-1.5 rounded-full border border-teal-200 text-teal-600 bg-teal-50 hover:bg-teal-100 transition-colors focus:outline-none focus:ring-2 focus:ring-teal-200 shadow"
           >
             About Us

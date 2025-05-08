@@ -6,7 +6,7 @@ import Navbar from './Navbar';
 const userTypes = [
   {
     key: 'kader',
-    label: 'Community Health Worker (Kader)',
+    label: 'Community Health Worker (Cadre)',
     icon: '🩺',
     description: 'Access e-learning, reporting tools, and community outreach resources.'
   },
@@ -332,7 +332,7 @@ const LandingPage = () => {
           </section>
         </main>
         <footer className="w-full text-center text-teal-400 py-8 text-sm mt-auto relative z-10">
-          © 2024 ChildBright. All rights reserved.
+          © 2025 ChildBright. All rights reserved.
         </footer>
       </div>
     </>
